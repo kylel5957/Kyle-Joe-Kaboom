@@ -16,18 +16,34 @@ k.setGravity(1300);
 
 const LEVELS = [
     [
-        "@				          ^",
-        ">  >  >  >  >  >",
+        "@",
+
+        "=  =  =  =  =  = >",
     ],
     [
         "@",
-        " >   >   >   >   >  ^",
+        " =   =   =   =   =  >",
     ],
 	[
-		"@  		>  >  >",
-		" > > > > > > > > > > ^",
-	],
+		"       /  $      $     ",
+		" @                     ",
+		"====================== ",
+		"       /  $            ",
+		"                       ",
+		"  =======================",
+		"         $$$$          ",
+		"                   >   ",
+		"====/========//========",
 
+	],
+	[
+		"  $               $   ",
+		"  =     $         =   ",
+		"   @    =      $      ",
+		"   =        $  =      ",
+		"     $      =      >  ",
+		"     =             =  ",
+	],
 
 ]
 
@@ -47,7 +63,7 @@ scene("game", ({ levelIdx, score }) => {
 				anchor("bot"),
 				"player",
 			],
-			">": () => [
+			"=": () => [
 				sprite("block"),
 				area(),
                 scale(0.1),
@@ -55,7 +71,7 @@ scene("game", ({ levelIdx, score }) => {
                 body({ isStatic: true }),
                 anchor("bot"),
 			],
-			"=": () => [
+			">": () => [
 				sprite("portal"),
 				area(),
 				anchor("bot"),
@@ -68,6 +84,13 @@ scene("game", ({ levelIdx, score }) => {
 				pos(0, 200),
 				anchor("bot"),
 				"portal",
+			],
+			"/": () => [
+				sprite("spike"),
+				area(),
+				anchor("bot"),
+				scale(.2),
+				"danger",
 			],
 		},
 	})
