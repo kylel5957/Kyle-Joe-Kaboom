@@ -2,6 +2,25 @@ import kaboom from "kaboom"
 
 const k = kaboom()
 
+//when you see this joe, Mueller said to use a cdn instead of the NPM we are using right now, we can use everything we've written so far, we just gotta use the CDN instead and it should work fine. And if we use a CDN, use HTTP-SERVER not NPM RUN DEV
+
+
+<script type="module">
+
+// import kaboom.js
+import kaboom from "https://unpkg.com/kaboom@3000.0.1/dist/kaboom.mjs";
+
+// initialize kaboom context
+kaboom();
+
+// add a piece of text at position (120, 80)
+add([
+    text("hello"),
+    pos(120, 80),
+]);
+
+</script>
+
 
 //loading sprites
 k.loadSprite("bean", "sprites/bean.png")
