@@ -16,9 +16,8 @@ k.setGravity(1300);
 
 const LEVELS = [
     [
-        "@",
-
-        ">  >  >  >  >  > ^",
+        "@				          ^",
+        ">  >  >  >  >  >",
     ],
     [
         "@",
@@ -65,8 +64,8 @@ scene("game", ({ levelIdx, score }) => {
 			"^": () => [
 				sprite("pov"),
 				area(),
-				scale (0.15),
-				pos(0, 190),
+				scale (0.3),
+				pos(0, 200),
 				anchor("bot"),
 				"portal",
 			],
