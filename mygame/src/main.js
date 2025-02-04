@@ -7,7 +7,7 @@ const k = kaboom()
 k.loadSprite("bean", "sprites/bean.png")
 k.loadSprite("spike", "sprites/spike.png")
 k.loadSprite("block", "sprites/block.png")
-k.loadSprite("pov", "sprites/portal.jpg")
+k.loadSprite("portal", "sprites/portal.jpg")
 
 
 const SPEED = 400;
