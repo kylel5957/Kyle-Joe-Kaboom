@@ -7,7 +7,7 @@ const k = kaboom()
 k.loadSprite("bean", "sprites/bean.png")
 k.loadSprite("spike", "sprites/spike.png")
 k.loadSprite("block", "sprites/block.png")
-k.loadSprite("portal", "sprites/portal.jpg")
+k.loadSprite("pov", "sprites/portal.jpg")
 
 
 const SPEED = 400;
@@ -25,8 +25,7 @@ const LEVELS = [
         " =   =   =   =   =  >",
     ],
 	[
-		"       /  $      $     ",
-		" @                     ",
+		" @        $      $    	",
 		"====================== ",
 		"       /  $            ",
 		"                       ",
@@ -66,18 +65,13 @@ scene("game", ({ levelIdx, score }) => {
 			"=": () => [
 				sprite("block"),
 				area(),
-                scale(0.1),
+                scale(0.15),
                 pos(0, 200),
                 body({ isStatic: true }),
                 anchor("bot"),
 			],
-			">": () => [
-				sprite("portal"),
-				area(),
-				anchor("bot"),
-			],
 
-			"^": () => [
+			">": () => [
 				sprite("pov"),
 				area(),
 				scale (0.3),
