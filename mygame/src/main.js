@@ -2,9 +2,6 @@ import kaboom from "kaboom"
 
 const k = kaboom()
 
-//when you see this joe, Mueller said to use a cdn instead of the NPM we are using right now, we can use everything we've written so far, we just gotta use the CDN instead and it should work fine. And if we use a CDN, use HTTP-SERVER not NPM RUN DEV
-
-
 
 //loading sprites
 k.loadSprite("bean", "sprites/bean.png")
