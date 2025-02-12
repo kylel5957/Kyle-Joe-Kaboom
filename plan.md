@@ -9,21 +9,23 @@
 
 #### MVP
 
+- Add a user and custom sprites (deadline: 2/28)
 - Build a help (question mark icon) button (deadline: 3/15)
-  - Construct a button and using DOM properties and a function to display purpose and controls of the game (3/15)
+  - Construct a button and using DOM properties and a function to display purpose and controls of the game (deadline: 3/15)
 -  Build 7-10 levels each being unique (trivia style)
-  - Create 1-2 Science-related levels (3/15)
-  - Create 1-2 Math-related levels (3/17)
-  - Create 1-2 History-related levels (3/19)
-  - Create 1-2 CS-related levels (3/21)
-  - Create 1-2 Calculus 8 levels (3/23)
-  - Add text to show problems and answer choices at various locations in each level (3/25)
--
+  - Create 1-2 Science-related levels (deadline: 3/15)
+  - Create 1-2 Math-related levels (deadline: 3/17)
+  - Create 1-2 History-related levels (deadline: 3/19)
+  - Create 1-2 CS-related levels (deadline: 3/21)
+  - Create 1-2 general knowledge levels (deadline: 3/23)
+  - Add text to show problems and answer choices at various locations in each level (deadline: 3/25)
+- Build a pause button (deadline: 3/26)
+- Build a easter egg using conditionals (deadline: 3/26)
+- Add sound effects (jump, death) into the game scene (deadline: 3/27)
 
 #### Beyond MVP
 
-- [ ] Task
-  - [ ] Subtask
+- Add a time bomb (time limit before a user explodes)
 
 
 <!-- EXAMPLE
