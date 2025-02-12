@@ -26,7 +26,7 @@
 #### Beyond MVP
 
 - Add a time bomb (time limit before a user explodes)
-
+- Media queries
 
 <!-- EXAMPLE
 
