@@ -9,7 +9,9 @@
 
 #### MVP
 
+
 - Add a user and custom sprites (deadline: 2/28)
+- Create a home page containing a start button (deadline: 3/10)
 - Build a help (question mark icon) button (deadline: 3/15)
   - Construct a button and using DOM properties and a function to display purpose and controls of the game (deadline: 3/15)
 -  Build 7-10 levels each being unique (trivia style)
