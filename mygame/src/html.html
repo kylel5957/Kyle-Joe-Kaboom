@@ -16,7 +16,7 @@ k.loadSprite("bean", "../www/sprites/bean.png")
 k.loadSprite("spike", "../www/sprites/spike.png")
 k.loadSprite("block", "../www/sprites/block.png")
 k.loadSprite("pov", "../www/sprites/portal.jpg")
-
+k.loadSprite("coin", "../www/sprites/coin.png")
 
 const SPEED = 400;
 k.setGravity(1300);
@@ -94,6 +94,13 @@ scene("game", ({ levelIdx, score }) => {
                 scale(.2),
                 "danger",
             ],
+            "$": () => [
+				sprite("coin"),
+				area(),
+				anchor("bot"),
+				scale(.3),
+				"coin",
+			],
         },
     })
 
