@@ -10,7 +10,7 @@
 #### MVP
 
 - [ ] Task (deadline: X)
-  - [ ] Subtask (deadline: X)
+    - [ ] Subtask (deadline: X)
 
 #### Beyond MVP
 
