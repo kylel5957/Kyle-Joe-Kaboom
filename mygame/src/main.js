@@ -25,13 +25,13 @@ const LEVELS = [
 		"=====================  ",
 		"						",
 		"        			    ",
-		" >   //    /     /     ",
-		"====================== ",
+		"       >  ///   ///    /     ",
+		"       ================= ",
 
 
 	],
 	[
-		"  /               /   ",
+		"  /              /   ",
 		"  =              =   ",
 		"   @    =            ",
 		"   =        /  =      ",
@@ -95,6 +95,14 @@ scene("game", ({ levelIdx, score }) => {
 		}
 	})
 
+	player.onUpdate(() => {
+		camPos(player.worldPos())
+	})
+
+	player.onPhysicsResolve(() => {
+		camPos(player.worldPos())
+	})
+
 	onKeyDown("left", () => {
 		player.move(-SPEED, 0)
 	})
@@ -108,7 +116,6 @@ scene("game", ({ levelIdx, score }) => {
 		// Go to "lose" scene when we hit a "danger"
 		go("lose", { score: score })
 	})
-
 
 
 	// Fall death
