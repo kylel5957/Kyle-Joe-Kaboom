@@ -12,7 +12,7 @@ k.loadSprite("pov", "sprites/port2.png")
 
 const SPEED = 400;
 k.setGravity(1300);
-setBackground(206, 242, 241);
+setBackground(105, 105, 241);
 
 const LEVELS = [
     [
