@@ -10,7 +10,7 @@
 #### MVP
 
 
-- Add a user and custom sprites (deadline: 2/28 - Kyle)
+- Add a user and custom sprites (deadline: 3/5 - Kyle)
 - Create a home page containing a start button (deadline: 3/10 - Both)
 - Build a help (question mark icon) button (deadline: 3/15 - Joe)
   - Construct a button and using DOM properties and a function to display purpose and controls of the game
