@@ -1,23 +1,17 @@
-
 <script type="module">
 
     import kaboom from "https://unpkg.com/kaboom@3000.0.1/dist/kaboom.mjs";
 
     const k = kaboom()
 
-    // add a piece of text at position (120, 80)
-    add([
-        text("hello"),
-        pos(120, 80),
-    ]);
 
 
     //loading sprites
-    k.loadSprite("bean", "../www/sprites/bean.png")
-    k.loadSprite("spike", "../www/sprites/spike.png")
-    k.loadSprite("block", "../www/sprites/block.png")
-    k.loadSprite("pov", "../www/sprites/portal.jpg")
-    k.loadSprite("coin", "../www/sprites/coin.png")
+    k.loadSprite("bean", "sprites/bean.png")
+    k.loadSprite("spike", "sprites/spike.png")
+    k.loadSprite("block", "sprites/block.png")
+    k.loadSprite("pov", "sprites/portal.jpg")
+    k.loadSprite("coin", "sprites/coin.png")
 
     const SPEED = 400;
     k.setGravity(1300);
