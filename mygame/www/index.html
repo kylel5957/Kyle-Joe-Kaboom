@@ -25,26 +25,6 @@
             "@",
             " =   =   =   =   =  >",
         ],
-        [
-            " @        $      $    	",
-            "====================== ",
-            "       /  $            ",
-            "                       ",
-            "  =======================",
-            "         $$$$          ",
-            "                   >   ",
-            "====/========//========",
-
-        ],
-        [
-            "  $               $   ",
-            "  =     $         =   ",
-            "   @    =      $      ",
-            "   =        $  =      ",
-            "     $      =      >  ",
-            "     =             =  ",
-        ],
-
     ]
 
 
@@ -121,7 +101,14 @@
             go("lose", { score: score })
         })
 
+        // Camera
+        player.onUpdate(() => {
+		camPos(player.worldPos())
+        })
 
+        player.onPhysicsResolve(() => {
+            camPos(player.worldPos())
+        })
 
         // Fall death
         player.onUpdate(() => {
