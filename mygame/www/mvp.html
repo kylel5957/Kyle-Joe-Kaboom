@@ -5,7 +5,7 @@
     const k = kaboom()
 
     //loading sprites
-    k.loadSprite("bean", "sprites/bean.png")
+    k.loadSprite("nerd", "sprites/nerd.png")
     k.loadSprite("spike", "sprites/spike.png")
     k.loadSprite("block", "sprites/block.png")
     k.loadSprite("pov", "sprites/port2.png")
@@ -64,9 +64,10 @@ addButton("Start", vec2(700, 300), () => start())
             pos: vec2(100, 200),
             tiles: {
                 "@": () => [
-                    sprite("bean"),
+                    sprite("nerd"),
                     area(),
                     body(),
+                    scale(0.1),
                     anchor("bot"),
                     "player",
                 ],
