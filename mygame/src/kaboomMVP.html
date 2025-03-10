@@ -3,16 +3,21 @@
     // import kaboom.js
     import kaboom from "https://unpkg.com/kaboom@3000.0.1/dist/kaboom.mjs";
 
-    // initialize kaboom context
-    kaboom()
+    const k = kaboom()
+
+    // add a piece of text at position (120, 80)
+    add([
+        text("hello"),
+        pos(120, 80),
+    ]);
 
 
-// loading sprites
-loadSprite("bean", "../www/sprites/bean.png")
-loadSprite("spike", "../www/sprites/spike.png")
-loadSprite("block", "../www/sprites/block.png")
-loadSprite("pov", "../www/sprites/port2.png")
-
+    //loading sprites
+    k.loadSprite("bean", "../www/sprites/bean.png")
+    k.loadSprite("spike", "../www/sprites/spike.png")
+    k.loadSprite("block", "../www/sprites/block.png")
+    k.loadSprite("pov", "../www/sprites/portal.jpg")
+    k.loadSprite("coin", "../www/sprites/coin.png")
 
 const SPEED = 400;
 setGravity(1300);
