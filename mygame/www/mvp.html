@@ -3,6 +3,7 @@
     import kaboom from "https://unpkg.com/kaboom@3000.0.1/dist/kaboom.mjs";
 
     const k = kaboom()
+    setBackground(105, 105, 241);
 
     //loading sprites
     k.loadSprite("nerd", "sprites/nerd.png")
@@ -67,7 +68,7 @@ addButton("Start", vec2(700, 300), () => start())
                     sprite("nerd"),
                     area(),
                     body(),
-                    scale(0.15),
+                    scale(0.13),
                     anchor("bot"),
                     "player",
                 ],
