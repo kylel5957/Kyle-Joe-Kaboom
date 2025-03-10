@@ -191,6 +191,37 @@ function start() {
 start()
 
 
+onKeyPress("p", () => {
+	game.paused = !game.paused
+	if (curTween) curTween.cancel()
+	curTween = tween(
+		pauseMenu.pos,
+		game.paused ? center() : center().add(0, 700),
+		1,
+		(p) => pauseMenu.pos = p,
+		easings.easeOutElastic,
+	)
+	if (game.paused) {
+		pauseMenu.hidden = false
+		pauseMenu.paused = false
+	} else {
+		curTween.onEnd(() => {
+			pauseMenu.hidden = true
+			pauseMenu.paused = true
+		})
+	}
+})
+
+const pauseMenu = add([
+	rect(300, 400),
+	color(255, 255, 255),
+	outline(4),
+	anchor("center"),
+	pos(center().add(0, 700)),
+])
+
+
+
 
 
 // For future use:
