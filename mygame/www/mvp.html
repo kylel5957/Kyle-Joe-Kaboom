@@ -28,6 +28,33 @@
     ]
 
 
+
+    function addButton(txt, p, a) {
+
+    const btn = add([
+        rect(200, 80, { radius: 10 }),
+        pos(p),
+        area(),
+        scale(1),
+        anchor("center"),
+    ])
+
+    btn.add([
+        text(txt),
+        anchor("center"),
+        color(0, 0, 0),
+    ])
+
+    btn.onClick(a)
+
+    return btn
+    }
+
+
+addButton("Start", vec2(700, 300), () => start())
+
+
+
     scene("game", ({ levelIdx, score }) => {
 
         // Use the level passed, or first level
@@ -176,7 +203,6 @@
         })
     }
 
-    start()
 
 
 </script>
