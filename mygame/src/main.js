@@ -4,7 +4,7 @@ const k = kaboom()
 
 
 //loading sprites
-k.loadSprite("bean", "sprites/bean.png")
+k.loadSprite("nerd", "sprites/nerd.png")
 k.loadSprite("spike", "sprites/spike.png")
 k.loadSprite("block", "sprites/block.png")
 k.loadSprite("pov", "sprites/port2.png")
@@ -51,7 +51,7 @@ scene("game", ({ levelIdx, score }) => {
 		pos: vec2(100, 200),
 		tiles: {
 			"@": () => [
-				sprite("bean"),
+				sprite("nerd"),
 				area(),
 				body(),
 				anchor("bot"),
@@ -85,22 +85,13 @@ scene("game", ({ levelIdx, score }) => {
 		},
 	})
 
-	// Get the player object from tag
 	const player = level.get("player")[0]
 
-	// Movements
+	// userSprite Movements
 	onKeyPress("space", () => {
 		if (player.isGrounded()) {
 			player.jump()
 		}
-	})
-
-	player.onUpdate(() => {
-		camPos(player.worldPos())
-	})
-
-	player.onPhysicsResolve(() => {
-		camPos(player.worldPos())
 	})
 
 	onKeyDown("left", () => {
@@ -111,14 +102,24 @@ scene("game", ({ levelIdx, score }) => {
 		player.move(SPEED, 0)
 	})
 
+	// Camera Tracking
+	player.onUpdate(() => {
+		camPos(player.worldPos())
+	})
+
+	player.onPhysicsResolve(() => {
+		camPos(player.worldPos())
+	})
+
 	player.onCollide("danger", () => {
 		player.pos = level.tile2Pos(0, 0)
-		// Go to "lose" scene when we hit a "danger"
+
+		// Go to losing scene
 		go("lose", { score: score })
 	})
 
 
-	// Fall death
+	// Death when userSprite reaches a certain position
 	player.onUpdate(() => {
 		if (player.pos.y >= 480) {
 			go("lose", { score: score })
@@ -139,7 +140,7 @@ scene("game", ({ levelIdx, score }) => {
 		}
 	})
 
-	// Score counter text
+	// Score counter tracker
 	const scoreLabel = add([
 		text(score),
 		pos(12,12),
@@ -181,7 +182,7 @@ scene("win", ({ score }) => {
 })
 
 function start() {
-	// Start with the "game" scene, with initial parameters
+	// Spawn at the game scene, beginning
 	go("game", {
 		levelIdx: 0,
 		score: 0,
@@ -190,7 +191,7 @@ function start() {
 
 start()
 
-
+// Pause Menu
 onKeyPress("p", () => {
 	game.paused = !game.paused
 	if (curTween) curTween.cancel()
