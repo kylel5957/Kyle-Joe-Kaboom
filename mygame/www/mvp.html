@@ -11,6 +11,7 @@
     k.loadSprite("block", "sprites/grassy.png")
     k.loadSprite("pov", "sprites/port2.png")
     k.loadSprite("coin", "sprites/coin.png")
+    k.loadSprite("portal", "sprites/portal.png")
 
     const SPEED = 400;
     k.setGravity(1300);
@@ -98,6 +99,13 @@ addButton("Start", vec2(700, 300), () => start())
                 ],
                 "$": () => [
                     sprite("coin"),
+                    area(),
+                    anchor("bot"),
+                    scale(.3),
+                    "coin",
+                ],
+                "(": () => [
+                    sprite("portal"),
                     area(),
                     anchor("bot"),
                     scale(.3),
