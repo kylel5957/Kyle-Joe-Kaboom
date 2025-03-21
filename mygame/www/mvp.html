@@ -19,15 +19,12 @@
     const LEVELS = [
         [
             "@",
-
-            "=  =  =  =  =  = >",
+            "         /      > ",
+            "=  =  =  =  =  = ",
         ],
         [
-            "            =  =  = >",
-            "                     ",
-            "                 (   ",
-            "@                    ",
-            " =   =   =   =   =  >",
+            "@                             > ",
+            " =   =   =     =     =    =   = ",
         ],
     ]
 
@@ -88,7 +85,7 @@ addButton("Start", vec2(700, 300), () => start())
                     sprite("pov"),
                     area(),
                     scale (0.15),
-                    pos(0, 200),
+                    pos(0, 220),
                     anchor("bot"),
                     "portal",
                 ],
@@ -103,6 +100,7 @@ addButton("Start", vec2(700, 300), () => start())
                     sprite("spike"),
                     area(),
                     anchor("bot"),
+                    pos(0, 220),
                     scale(.2),
                     "danger",
                 ],
@@ -160,7 +158,7 @@ addButton("Start", vec2(700, 300), () => start())
 		player.pos = level.tile2Pos(0, 0)
 		// play("burp")
 		// Go to "lose" scene when we hit a "danger"
-		go("lose")
+		go("lose", { score: score })
 	})
 
 	player.onCollide("coin", (coin) => {
