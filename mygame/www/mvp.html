@@ -14,7 +14,7 @@
     k.loadSprite("portal", "sprites/portal.png")
 
     const SPEED = 400;
-    k.setGravity(1300);
+    k.setGravity(1400);
 
 
     const LEVELS = [
@@ -24,7 +24,10 @@
             "=  =  =  =  =  = >",
         ],
         [
-            "@",
+            "            =  =  = >",
+            "                     ",
+            "                     ",
+            "@                    ",
             " =   =   =   =   =  >",
         ],
     ]
@@ -85,7 +88,7 @@ addButton("Start", vec2(700, 300), () => start())
                 ">": () => [
                     sprite("pov"),
                     area(),
-                    scale (0.3),
+                    scale (0.15),
                     pos(0, 200),
                     anchor("bot"),
                     "portal",
