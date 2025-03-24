@@ -13,32 +13,32 @@
     k.loadSprite("coin", "sprites/coin.png")
 
     const SPEED = 400;
-    k.setGravity(1300);
+    k.setGravity(900);
 
 
     const LEVELS = [
         [
             "@                ",
-            "                 ",
+            "            $    ",
             "         /     > ",
             "=  =  =  =  =  = ",
         ],
         [
-            " @                           >  ",
+            " @             $             >  ",
             " ==   =   =    =    =    =   =  ",
             "                                ",
             "                                ",
-            "      /  /             (   =    ",
+            "      /  /     $       (   =    ",
             "      =  =  =  =   =   =        ",
         ],
         [
             "              (    =    =     =    =   =   ",
-            "@                             >           $",
+            "@                    $        >           $",
             " =   =   =     =     =    =   =     =     =",
         ],
         [
             "@                             ",
-            "  //  //     //   //     /    ",
+            "  //  //     //   //  $  /    ",
             "===========================   ",
             "                              ",
             "                              ",
@@ -209,13 +209,13 @@ addButton("Start", vec2(700, 300), () => start())
 
         // Score counter text
         const sScore = add([
-            text("Level" + " " + stageScore),
+            text("Level:" + " " + stageScore),
             pos(12),
             fixed(),
         ])
 
         const cScore = add([
-		text("Coins" + " " + coinScore),
+		text("Coins:" + " " + coinScore),
 		pos(15, 60),
         fixed()
 	])
