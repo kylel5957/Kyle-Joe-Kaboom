@@ -13,22 +13,22 @@
     k.loadSprite("coin", "sprites/coin.png")
 
     const SPEED = 400;
-    k.setGravity(1300);
+    k.setGravity(900);
 
 
     const LEVELS = [
         [
             "@                ",
-            "                 ",
+            "            $    ",
             "         /     > ",
             "=  =  =  =  =  = ",
         ],
         [
-            " @                           >  ",
+            " @             $             >  ",
             " ==   =   =    =    =    =   =  ",
             "                                ",
             "                                ",
-            "      /  /             (   =    ",
+            "      /  /     $       (   =    ",
             "      =  =  =  =   =   =        ",
         ],
         [
@@ -40,7 +40,7 @@
         ],
         [
             "@                             ",
-            "  //  //     //   //     /    ",
+            "  //  //     //   //  $  /    ",
             "===========================   ",
             "                              ",
             "                              ",
@@ -79,7 +79,7 @@ addButton("Start", vec2(700, 300), () => start())
 
 
 
-    scene("game", ({ levelIdx, score }) => {
+    scene("game", ({ levelIdx, stageScore, coinScore }) => {
 
         // Use the level passed, or first level
         const level = addLevel(LEVELS[levelIdx || 0], {
@@ -159,7 +159,7 @@ addButton("Start", vec2(700, 300), () => start())
         player.onCollide("danger", () => {
             // player.pos = level.tile2Pos(0, 0)
             // Go to "lose" scene when we hit a "danger"
-            go("lose", { score: score })
+            go("lose", { stageScore: stageScore })
         })
 
         // Camera
@@ -174,7 +174,7 @@ addButton("Start", vec2(700, 300), () => start())
         // Fall death
         player.onUpdate(() => {
             if (player.pos.y >= 600) {
-                go("lose", { score: score })
+                go("lose", { stageScore: stageScore })
             }
         })
 
@@ -182,42 +182,51 @@ addButton("Start", vec2(700, 300), () => start())
 		player.pos = level.tile2Pos(0, 0)
 		// play("burp")
 		// Go to "lose" scene when we hit a "danger"
-		go("lose", { score: score })
+		go("lose", { stageScore: stageScore })
 	})
 
 	player.onCollide("coin", (coin) => {
 		destroy(coin)
 		// play("pop")
-		score++;
-		// scoreLabel.text = score;
+		coinScore++;
+		cScore.text = coinScore;
 	})
 
         // Enter the next level on portal
         player.onCollide("portal", () => {
+            stageScore++;
+            sScore.text = stageScore;
             if (levelIdx < LEVELS.length - 1) {
                 // If there's a next level, go() to the same scene but load the next level
                 go("game", {
                     levelIdx: levelIdx + 1,
-                    score: score + 1,
+                    stageScore: stageScore,
+                    coinScore: coinScore,
                 })
             } else {
                 // Otherwise we have reached the end of game, go to "win" scene!
-                go("win", { score: score })
+                go("win", { stageScore: stageScore, coinScore: coinScore })
             }
         })
 
         // Score counter text
-        const scoreLabel = add([
-            text(score),
+        const sScore = add([
+            text("Level:" + " " + stageScore),
             pos(12),
             fixed(),
         ])
 
+        const cScore = add([
+		text("Coins:" + " " + coinScore),
+		pos(15, 60),
+        fixed()
+	])
+
     })
 
-    scene("lose", ({ score }) => {
+    scene("lose", ({ stageScore }) => {
         add([
-            text(`You beat ${score} level(s)... Try again!`),
+            text(`You beat ${stageScore} level(s)... Try again!`),
             pos(12),
         ])
 
@@ -226,7 +235,7 @@ addButton("Start", vec2(700, 300), () => start())
 
     })
 
-    scene("win", ({ score }) => {
+    scene("win", ({ stageScore, coinScore }) => {
 
         add([
             text(`You Won!!!`, {
@@ -243,7 +252,8 @@ addButton("Start", vec2(700, 300), () => start())
         // Start with the "game" scene, with initial parameters
         go("game", {
             levelIdx: 0,
-            score: 0,
+            stageScore: 0,
+            coinScore: 0,
         })
     }
 
