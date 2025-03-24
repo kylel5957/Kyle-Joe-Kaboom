@@ -18,14 +18,34 @@
 
     const LEVELS = [
         [
-            "@",
-            "   $     /      > ",
+            "@                ",
+            "                 ",
+            "         /     > ",
             "=  =  =  =  =  = ",
+        ],
+        [
+            " @                           >  ",
+            " ==   =   =    =    =    =   =  ",
+            "                                ",
+            "                                ",
+            "      /  /             (   =    ",
+            "      =  =  =  =   =   =        ",
         ],
         [
             "              (    =    =     =    =   =   ",
             "@                             >           $",
             " =   =   =     =     =    =   =     =     =",
+        ],
+        [
+            "@                             ",
+            "  //  //     //   //     /    ",
+            "===========================   ",
+            "                              ",
+            "                              ",
+            "   >                          ",
+            "   ======    =====  ==  ====  ",
+
+
         ],
     ]
 
@@ -95,6 +115,7 @@ addButton("Start", vec2(700, 300), () => start())
                     area(),
                     anchor("bot"),
                     scale(.15),
+                    pos(0, 220),
                     "danger",
                 ],
                 "/": () => [
@@ -150,7 +171,7 @@ addButton("Start", vec2(700, 300), () => start())
 
         // Fall death
         player.onUpdate(() => {
-            if (player.pos.y >= 480) {
+            if (player.pos.y >= 600) {
                 go("lose", { stageScore: stageScore })
             }
         })
@@ -202,12 +223,9 @@ addButton("Start", vec2(700, 300), () => start())
     })
 
     scene("lose", ({ stageScore }) => {
-
         add([
             text(`You beat ${stageScore} level(s)... Try again!`),
             pos(12),
-
-
         ])
 
         // Press any key to go back
