@@ -32,9 +32,11 @@
             "      =  =  =  =   =   =        ",
         ],
         [
-            "              (    =    =     =    =   =   ",
-            "@                    $        >           $",
-            " =   =   =     =     =    =   =     =     =",
+            "                  (                         ",
+            "                  =    =     =    =   =     ",
+            "                                            ",
+            "@                             >           $ ",
+            "==   =   =     =     =    =   =     =     = ",
         ],
         [
             "@                             ",
@@ -187,7 +189,7 @@ addButton("Start", vec2(700, 300), () => start())
 		destroy(coin)
 		// play("pop")
 		coinScore++;
-		cScore.text = coinScore;
+		cScore.text = "Coins:" + " " + coinScore;
 	})
 
         // Enter the next level on portal
