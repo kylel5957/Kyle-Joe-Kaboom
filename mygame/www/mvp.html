@@ -13,14 +13,14 @@
     k.loadSprite("coin", "sprites/coin.png")
 
     const SPEED = 400;
-    k.setGravity(900);
+    k.setGravity(1300);
 
 
     const LEVELS = [
         [
             "@                ",
             "            $    ",
-            "         /     > ",
+            "      ,  /     > ",
             "=  =  =  =  =  = ",
         ],
         [
@@ -104,6 +104,14 @@ addButton("Start", vec2(700, 300), () => start())
                     anchor("bot"),
                 ],
 
+                ",": () => [
+                    sprite("block"),
+                    area(),
+                    scale(0.15),
+                    pos(0, 200),
+                    body({ mass: 10}),
+                    anchor("bot"),
+                ],
                 ">": () => [
                     sprite("pov"),
                     area(),
@@ -219,7 +227,7 @@ addButton("Start", vec2(700, 300), () => start())
         const cScore = add([
 		text("Coins:" + " " + coinScore),
 		pos(15, 60),
-        fixed()
+        fixed(),
 	])
 
     })
