@@ -12,6 +12,14 @@
     k.loadSprite("pov", "sprites/port2.png")
     k.loadSprite("coin", "sprites/coin.png")
 
+
+    k.loadSound("fall", "sounds/fall.mp3")
+    k.loadSound("coin", "sounds/coin.mp3")
+    k.loadSound("portal", "sounds/portal.mp3")
+    k.loadSound("victory", "sounds/victory.mp3")
+
+
+
     const SPEED = 400;
     k.setGravity(1300);
 
@@ -218,11 +226,6 @@ addButton("Start", vec2(700, 300), () => start())
             player.move(SPEED, 0)
         })
 
-        player.onCollide("danger", () => {
-            // player.pos = level.tile2Pos(0, 0)
-            // Go to "lose" scene when we hit a "danger"
-            go("lose", { stageScore: stageScore })
-        })
 
         // Camera
         player.onUpdate(() => {
@@ -237,25 +240,26 @@ addButton("Start", vec2(700, 300), () => start())
         player.onUpdate(() => {
             if (player.pos.y >= 600) {
                 go("lose", { stageScore: stageScore })
+                play("fall")
             }
         })
 
         player.onCollide("danger", () => {
 		player.pos = level.tile2Pos(0, 0)
-		// play("burp")
 		// Go to "lose" scene when we hit a "danger"
 		go("lose", { stageScore: stageScore })
 	})
 
 	player.onCollide("coin", (coin) => {
 		destroy(coin)
-		// play("pop")
+		play("coin")
 		coinScore++;
 		cScore.text = "Coins:" + " " + coinScore;
 	})
 
         // Enter the next level on portal
         player.onCollide("portal", () => {
+            play("portal")
             stageScore++;
             sScore.text = stageScore;
             if (levelIdx < LEVELS.length - 1) {
@@ -268,6 +272,7 @@ addButton("Start", vec2(700, 300), () => start())
             } else {
                 // Otherwise we have reached the end of game, go to "win" scene!
                 go("win", { stageScore: stageScore, coinScore: coinScore })
+                play("victory")
             }
         })
 
