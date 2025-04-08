@@ -12,7 +12,7 @@
 
 - Add a user and custom sprites (deadline: 3/5 - Kyle)
 - Create a home page containing a start button (deadline: 3/10 - Both)
-- Build a help (question mark icon) button (deadline: 3/15 - Joe)
+- Build a help (question mark icon) button (deadline: 4/8 - Joe)
   - Construct a button and using DOM properties and a function to display purpose and controls of the game
 -  Build 7-10 levels each being unique (trivia style)
     - Create 1-2 Science-related levels (deadline: 3/15 - Joe)
@@ -20,15 +20,16 @@
     - Create 1-2 History-related levels (deadline: 3/19 - Kyle)
     - Create 1-2 CS-related levels (deadline: 3/21 - Kyle)
     - Create 1-2 general knowledge levels (deadline: 3/23 - Joe)
-    - Add text to show problems and answer choices at various locations in each level (deadline: 3/25 - Kyle)
-- Build a pause button (deadline: 3/26 - Kyle)
-- Build a easter egg using conditionals (deadline: 3/26 - Both)
+    - Add text to show problems and answer choices at various locations in each level (deadline: 4/8 - Kyle)
+- Build a easter egg using conditionals (deadline: 4/8 - Both)
 - Add sound effects (jump, death) into the game scene (deadline: 3/27 - Both)
 
 #### Beyond MVP
 
 - Add a time bomb (time limit before a user explodes)
 - Media queries
+- Build a pause button
+
 
 <!-- EXAMPLE
 
