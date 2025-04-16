@@ -34,17 +34,18 @@
             "                                ",
             " @      /      $       /    Q>  ",
             "      = = =  0 =    =  = =   =  ",
-            "   =       =                     ",
-            " =           =                  ",
+            "   =                            ",
+            " =          =                   ",
+            "              =                 ",
             "               $      q(        ",
             "               =   =   =        ",
         ],
         [
-            "                  (                         ",
+            "                 w(                         ",
             "                  =                         ",
             "               $                            ",
-            "               =                            ",
-            "@             =   $            >            ",
+            "     1         =                            ",
+            "@             =   $           W>            ",
             "==   =   ======  ==   =    =   =            ",
         ],
         [
@@ -206,7 +207,7 @@ addButton("Start", vec2(700, 300), () => start())
                     text("What is the square root of 81?")
                 ],
                 "q": () => [
-                    text("7 is the answer")
+                    text("It is 7")
                 ],
                 "Q": () => [
                     text("It is 9")
@@ -307,7 +308,7 @@ addButton("Start", vec2(700, 300), () => start())
 
         // Fall death
         player.onUpdate(() => {
-            if (player.pos.y >= 600) {
+            if (player.pos.y >= 800) {
                 go("lose", { stageScore: stageScore })
                 play("fall")
             }
