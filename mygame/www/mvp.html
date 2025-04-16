@@ -5,20 +5,17 @@
     const k = kaboom()
     setBackground(105, 105, 241);
 
-    //loading sprites
+    // loading sprites
     k.loadSprite("nerd", "sprites/nerd.png")
     k.loadSprite("spike", "sprites/spike.png")
     k.loadSprite("block", "sprites/grassy.png")
     k.loadSprite("pov", "sprites/port2.png")
     k.loadSprite("coin", "sprites/coin.png")
 
-
     k.loadSound("fall", "sounds/fall.mp3")
     k.loadSound("coin", "sounds/coin.mp3")
     k.loadSound("portal", "sounds/portal.mp3")
     k.loadSound("victory", "sounds/victory.mp3")
-
-
 
     const SPEED = 400;
     k.setGravity(1300);
@@ -28,24 +25,30 @@
         [
             "@                ",
             "                 ",
+            "                 ",
+            "                 ",
             "   -  /     $  > ",
             "=  =  =  =  =  = ",
         ],
         [
-            " @             $             >  ",
-            " ==   =   =    =    =    =   =  ",
+            " @                              ",
             "                                ",
+            "              $             >   ",
+            " =   =   =    =    =    =   =   ",
+            "                                ",
+            "                  =             ",
             "                                ",
             "      /  /     $       (   =    ",
             "      =  =  =  =   =   =        ",
         ],
         [
-            "                  (                         ",
+
+            "@                 (                         ",
             "                  =                         ",
             "               $                            ",
             "               =                            ",
-            "@             =   $            >            ",
-            "==   =   ======  ==   =    =   =            ",
+            "              =   $            >            ",
+            "=    =   ======  ==   =    =   =            ",
         ],
         [
             "@                             ",
@@ -60,8 +63,8 @@
         ],
         [
             "@                                          ",
-            "  //  //     //       $                    ",
-            "===========  =  =     =                    ",
+            "  //  //       /        $                  ",
+            "=========== =  =  =     =                  ",
             "                                           ",
             "                         =                 ",
             "   >           $ $  //       $ /  /    (   ",
@@ -73,6 +76,7 @@
             "@                             ",
             "  //         ///    $ / $     ",
             "=========   =============     ",
+            "                              ",
             "              ( $             ",
             "              ===        ==   ",
             "   >  / /    $ /         $$$  ",
@@ -238,7 +242,7 @@ addButton("Start", vec2(700, 300), () => start())
 
         // Fall death
         player.onUpdate(() => {
-            if (player.pos.y >= 600) {
+            if (player.pos.y >= 750) {
                 go("lose", { stageScore: stageScore })
                 play("fall")
             }
@@ -323,7 +327,5 @@ addButton("Start", vec2(700, 300), () => start())
             coinScore: 0,
         })
     }
-
-
 
 </script>
