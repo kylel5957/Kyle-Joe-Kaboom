@@ -106,6 +106,10 @@
     ]
 
 
+    function name(){
+    var btnName = ["Press me", "Click Here", "Start Here", "Tap Me"]
+    return btnName[Math.floor(Math.random()*4)]
+    }
 
     function addButton(txt, p, a) {
 
@@ -129,7 +133,7 @@
     }
 
 
-addButton("Start", vec2(700, 300), () => start())
+addButton(name(), vec2(700, 300), () => start())
 
 
 
