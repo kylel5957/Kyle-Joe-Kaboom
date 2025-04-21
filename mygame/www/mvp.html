@@ -16,6 +16,7 @@
     k.loadSound("coin", "sounds/coin.mp3")
     k.loadSound("portal", "sounds/portal.mp3")
     k.loadSound("victory", "sounds/victory.mp3")
+    k.loadSound("ding", "sounds/ding.mp3")
 
     const SPEED = 400;
     k.setGravity(1300);
@@ -62,20 +63,18 @@
         ],
         [
             "@                                          ",
-            "  //  //     //       $                    ",
+            "  //  //     /        $                    ",
             "===========  =  =     =                    ",
             "                                           ",
             "                         =                 ",
-            "   >           $ $  //       $ /  /    (   ",
-            "   ======    =====  ==  ===  =======   =   ",
-
-
+            "   >           $3$  //       $ /  /    (   ",
+            "  R======    =====  ==  ===  =======  r=   ",
         ],
         [
             "@                             ",
             "  //         ///    $ / $     ",
             "=========   =============     ",
-            "              ( $             ",
+            "    4         $ $             ",
             "              ===        ==   ",
             "   >  /=/ =  $     =     $$$  ",
             "  T======   ======(  =  ====  ",
@@ -107,6 +106,10 @@
     ]
 
 
+    function name(){
+    var btnName = ["Press me", "Click Here", "Start Here", "Tap Me"]
+    return btnName[Math.floor(Math.random()*4)]
+    }
 
     function addButton(txt, p, a) {
 
@@ -130,7 +133,7 @@
     }
 
 
-addButton("Start", vec2(700, 300), () => start())
+addButton(name(), vec2(700, 300), () => start())
 
 
 
@@ -294,6 +297,10 @@ addButton("Start", vec2(700, 300), () => start())
 
         onKeyDown("right", () => {
             player.move(SPEED, 0)
+        })
+
+        onKeyDown("h", () => {
+            play("ding")
         })
 
 
