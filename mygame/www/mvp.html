@@ -327,6 +327,11 @@ addButton(name(), vec2(700, 300), () => start())
 		go("lose", { stageScore: stageScore })
 	})
 
+    onKeyPress('r', () => {
+        alert("You found a key!")
+    }
+    )
+
 	player.onCollide("coin", (coin) => {
 		destroy(coin)
 		play("coin")
