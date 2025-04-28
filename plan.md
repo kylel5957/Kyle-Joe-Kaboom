@@ -25,11 +25,10 @@
 
 #### Beyond MVP
 
-- Add a time bomb (time limit before a user explodes)
-- Media queries
-- Build a pause button
+- Change the movement speed of the user sprite
+- Build checkpoints
 - Build a help (question mark icon) button
-
+- Adding a timer (for competitive purposes)
 
 
 <!-- EXAMPLE
