@@ -90,10 +90,8 @@
             "               /$       $ $   ",
             "             =====  ==  ====  ",
             "                              ",
-            "                              ",
-            "   (            Y>            ",
+            "   (             > Y          ",
             " y ==  =     =  ==            ",
-            "                              ",
         ],
         [
             "@                                 ",
@@ -259,13 +257,15 @@ addButton(name(), vec2(700, 300), () => start())
                     text("How do plants make food?")
                 ],
                 "Y": () => [
-                    text("By photosynthesis")
+                    text("By photosynthesis"),
+                    pos(0, 130)
                 ],
                 "y": () => [
                     text("They pick up leftovers")
                 ],
                 "6": () => [
-                    text("Who was the first president of the USA?")
+                    text("Who was the first president of the USA?"),
+                    pos(0, -20)
                 ],
                 "u": () => [
                     text("Abraham Lincoln!!")
@@ -319,7 +319,7 @@ addButton(name(), vec2(700, 300), () => start())
 
         // Fall death
         player.onUpdate(() => {
-            if (player.pos.y >= 800) {
+            if (player.pos.y >= 1100) {
                 go("lose", { stageScore: stageScore })
                 play("fall")
             }
@@ -331,7 +331,7 @@ addButton(name(), vec2(700, 300), () => start())
 		go("lose", { stageScore: stageScore })
 	})
 
-    onKeyPress('r', () => {
+    onKeyPress('p', () => {
         alert("You found a key!")
     }
     )
