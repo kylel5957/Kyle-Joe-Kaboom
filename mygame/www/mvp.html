@@ -23,32 +23,32 @@
 
 
     const LEVELS = [
-        [
-            "@                ",
-            "                 ",
-            "                 ",
-            "                 ",
-            "   -  /     $  > ",
-            "=  =  =  =  =  = ",
-        ],
-        [
-            "                                ",
-            " @      /      $       /    Q>  ",
-            "      = = =  0 =    =  = =   =  ",
-            "   =                            ",
-            " =          =                   ",
-            "              =                 ",
-            "               $      q(        ",
-            "               =   =   =        ",
-        ],
-        [
-            "                 w(                         ",
-            "                  =                         ",
-            "               $                            ",
-            "     1         =                            ",
-            "@             =   $           W>            ",
-            "==   =   ======  ==   =    =   =            ",
-        ],
+        // [
+        //     "@                ",
+        //     "                 ",
+        //     "                 ",
+        //     "                 ",
+        //     "   -  /     $  > ",
+        //     "=  =  =  =  =  = ",
+        // ],
+        // [
+        //     "                                ",
+        //     " @      /      $       /    Q>  ",
+        //     "      = = =  0 =    =  = =   =  ",
+        //     "   =                            ",
+        //     " =          =                   ",
+        //     "              =                 ",
+        //     "               $      q(        ",
+        //     "               =   =   =        ",
+        // ],
+        // [
+        //     "                 w(                         ",
+        //     "                  =                         ",
+        //     "               $                            ",
+        //     "     1         =                            ",
+        //     "@             =   $           W>            ",
+        //     "==   =   ======  ==   =    =   =            ",
+        // ],
         [
             "@                             ",
             "  //  //     //   //  $  /    ",
@@ -57,6 +57,7 @@
             "                              ",
             "    >         $           $   ",
             "  E====    2 =====  ==  ====  ",
+            "                              ",
             "          =                   ",
             "    (   =     =    = $$ $$    ",
             "  e=====        =    == ==    ",
@@ -81,16 +82,17 @@
             "                 t            ",
         ],
         [
-            "@                             ",
+            "@            5                ",
             "  //         ///    $ / $     ",
             "=====       =============     ",
-            "       5==             $      ",
+            "                              ",
+            "        ==             $      ",
             "           ==          ==     ",
             "               /$       $ $   ",
             "             =====  ==  ====  ",
-            "  (             >             ",
+            "                              ",
+            "   (             >Y           ",
             " y ==  =     =  ==            ",
-            "                  Y           ",
         ],
         [
             "@                                 ",
@@ -100,6 +102,7 @@
             "                6      ==         ",
             " $    ===     $ $                 ",
             " =           =====  ==            ",
+            "                                  ",
             "    (                   $      >  ",
             "   u==   =              ==  U === ",
         ],
@@ -229,13 +232,15 @@ addButton(name(), vec2(700, 300), () => start())
                     text("What's the opposite of input?")
                 ],
                 "e": () => [
-                    text("Inside, Within")
+                    text("Inside, Within"),
+                    pos(0, -10)
                 ],
                 "E": () => [
                     text("Output, outside")
                 ],
                 "3": () => [
-                    text("What's the opposite of software?")
+                    text("What's the opposite of software?"),
+                    pos(0, 40)
                 ],
                 "r": () => [
                     text("It's firmware!")
@@ -256,13 +261,15 @@ addButton(name(), vec2(700, 300), () => start())
                     text("How do plants make food?")
                 ],
                 "Y": () => [
-                    text("By photosynthesis")
+                    text("By photosynthesis"),
+                    pos(0, 130)
                 ],
                 "y": () => [
                     text("They pick up leftovers")
                 ],
                 "6": () => [
-                    text("Who was the first president of the USA?")
+                    text("Who was the first president of the USA?"),
+                    pos(0, -20)
                 ],
                 "u": () => [
                     text("Abraham Lincoln!!")
@@ -316,7 +323,7 @@ addButton(name(), vec2(700, 300), () => start())
 
         // Fall death
         player.onUpdate(() => {
-            if (player.pos.y >= 800) {
+            if (player.pos.y >= 1100) {
                 go("lose", { stageScore: stageScore })
                 play("fall")
             }
@@ -328,7 +335,7 @@ addButton(name(), vec2(700, 300), () => start())
 		go("lose", { stageScore: stageScore })
 	})
 
-    onKeyPress('r', () => {
+    onKeyPress('p', () => {
         alert("You found a key!")
     }
     )
