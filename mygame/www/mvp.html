@@ -23,32 +23,32 @@
 
 
     const LEVELS = [
-         [
-             "@                ",
-             "                 ",
-             "                 ",
-             "                 ",
-             "   -  /     $  > ",
-             "=  =  =  =  =  = ",
-         ],
-         [
-             "                                ",
-             " @      /      $       /    Q>  ",
-             "      = = =  0 =    =  = =   =  ",
-             "   =                            ",
-             " =          =                   ",
-             "              =                 ",
-             "               $      q(        ",
-             "               =   =   =        ",
-         ],
-         [
-             "                 w(                         ",
-             "                  =                         ",
-             "               $                            ",
-             "     1         =                            ",
-             "@             =   $           W>            ",
-             "==   =   ======  ==   =    =   =            ",
-        ],
+        // [
+        //     "@                ",
+        //     "                 ",
+        //     "                 ",
+        //     "                 ",
+        //     "   -  /     $  > ",
+        //     "=  =  =  =  =  = ",
+        // ],
+        // [
+        //     "                                ",
+        //     " @      /      $       /    Q>  ",
+        //     "      = = =  0 =    =  = =   =  ",
+        //     "   =                            ",
+        //     " =          =                   ",
+        //     "              =                 ",
+        //     "               $      q(        ",
+        //     "               =   =   =        ",
+        // ],
+        // [
+        //     "                 w(                         ",
+        //     "                  =                         ",
+        //     "               $                            ",
+        //     "     1         =                            ",
+        //     "@             =   $           W>            ",
+        //     "==   =   ======  ==   =    =   =            ",
+        // ],
         [
             "@                             ",
             "  //  //     //   //  $  /    ",
@@ -141,7 +141,8 @@ addButton(name(), vec2(700, 300), () => start())
 
 
 
-    scene("game", ({ levelIdx, stageScore, coinScore }) => {
+    scene("game", ({ levelIdx, stageScore, coinScore}) => {
+
 
         // Use the level passed, or first level
         const level = addLevel(LEVELS[levelIdx || 0], {
@@ -160,7 +161,7 @@ addButton(name(), vec2(700, 300), () => start())
                 "=": () => [
                     sprite("block"),
                     area(),
-                    scale(0.12),
+                    scale(0.15),
                     pos(0, 200),
                     body({ isStatic: true }),
                     anchor("bot"),
@@ -325,7 +326,7 @@ addButton(name(), vec2(700, 300), () => start())
         // Fall death
         player.onUpdate(() => {
             if (player.pos.y >= 1100) {
-                go("lose", { stageScore: stageScore })
+                go("lose", { stageScore: stageScore , coinScore: coinScore })
                 play("fall")
             }
         })
@@ -333,7 +334,7 @@ addButton(name(), vec2(700, 300), () => start())
         player.onCollide("danger", () => {
 		player.pos = level.tile2Pos(0, 0)
 		// Go to "lose" scene when we hit a "danger"
-		go("lose", { stageScore: stageScore })
+		go("lose", { stageScore: stageScore, coinScore: coinScore })
 	})
 
     onKeyPress('p', () => {
@@ -382,14 +383,25 @@ addButton(name(), vec2(700, 300), () => start())
 
     })
 
-    scene("lose", ({ stageScore }) => {
+    scene("lose", ({ stageScore, coinScore}) => {
         add([
-            text(`You died!, You beat ${stageScore} level(s)... Try again!`),
+            text(`You died!, You beat ${stageScore} level(s) and collected ${coinScore} coin(s) ... Try again!`),
             pos(12),
         ])
 
+        var levelWhat = prompt("What level do you want to go back to?")
+        if(levelWhat <= stageScore){
+            go("game", {
+            levelIdx: levelWhat,
+            stageScore: levelWhat,
+            coinScore: 0,
+        })
+        start()
+        } else{
+            onKeyPress(start)
+        }
         // Press any key to go back
-        onKeyPress(start)
+        //    onKeyPress(start)
 
     })
 
@@ -410,7 +422,7 @@ addButton(name(), vec2(700, 300), () => start())
         // Start with the "game" scene, with initial parameters
         go("game", {
             levelIdx: 0,
-            stageScore: 0,
+            stageScore: 1,
             coinScore: 0,
         })
     }
