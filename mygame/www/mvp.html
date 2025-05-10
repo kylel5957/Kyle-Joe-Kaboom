@@ -23,32 +23,32 @@
 
 
     const LEVELS = [
-        // [
-        //     "@                ",
-        //     "                 ",
-        //     "                 ",
-        //     "                 ",
-        //     "   -  /     $  > ",
-        //     "=  =  =  =  =  = ",
-        // ],
-        // [
-        //     "                                ",
-        //     " @      /      $       /    Q>  ",
-        //     "      = = =  0 =    =  = =   =  ",
-        //     "   =                            ",
-        //     " =          =                   ",
-        //     "              =                 ",
-        //     "               $      q(        ",
-        //     "               =   =   =        ",
-        // ],
-        // [
-        //     "                 w(                         ",
-        //     "                  =                         ",
-        //     "               $                            ",
-        //     "     1         =                            ",
-        //     "@             =   $           W>            ",
-        //     "==   =   ======  ==   =    =   =            ",
-        // ],
+         [
+             "@                ",
+             "                 ",
+             "                 ",
+             "                 ",
+             "   -  /     $  > ",
+             "=  =  =  =  =  = ",
+         ],
+         [
+             "                                ",
+             " @      /      $       /    Q>  ",
+             "      = = =  0 =    =  = =   =  ",
+             "   =                            ",
+             " =          =                   ",
+             "              =                 ",
+             "               $      q(        ",
+             "               =   =   =        ",
+         ],
+         [
+             "                 w(                         ",
+             "                  =                         ",
+             "               $                            ",
+             "     1         =                            ",
+             "@             =   $           W>            ",
+             "==   =   ======  ==   =    =   =            ",
+         ],
         [
             "@                             ",
             "  //  //     //   //  $  /    ",
@@ -75,10 +75,10 @@
             "@                             ",
             "  //         ///    $ / $     ",
             "=========   =============     ",
-            "    4         $              ",
+            "    4         $               ",
             "              ==         ==   ",
-            "   >  /=/ =  $  t(   =     $$$  ",
-            "  T======   ======  =  ====  ",
+            "   >  /=/ =  $  t(   =     $$$",
+            "  T======   ======  =  ====   ",
             "                              ",
         ],
         [
@@ -135,11 +135,7 @@
     return btn
     }
 
-
-
 addButton(name(), vec2(700, 300), () => start())
-
-
 
     scene("game", ({ levelIdx, stageScore, coinScore}) => {
 
@@ -383,21 +379,20 @@ addButton(name(), vec2(700, 300), () => start())
 
     })
 
-    scene("lose", ({ stageScore, coinScore}) => {
-        add([
-            text(`You died!, You beat ${stageScore} level(s) and collected ${coinScore} coin(s) ... Try again!`),
-            pos(12),
-        ])
+    scene("lose", ({ stageScore, coinScore, levelIdx}) => {
 
-        var levelWhat = prompt("What level do you want to go back to?")
+        var levelWhat = parseInt(prompt("What level do you want to go back to?"))
         if(levelWhat <= stageScore){
             go("game", {
             levelIdx: levelWhat,
             stageScore: levelWhat,
             coinScore: 0,
         })
-        start()
-        } else{
+        } else {
+          add([
+                text(`Invalid number! You died!, You beat ${stageScore} level(s) and collected ${coinScore} coin(s) ... Try again!`),
+                pos(12),
+            ])
             onKeyPress(start)
         }
         // Press any key to go back
