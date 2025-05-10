@@ -384,7 +384,7 @@ addButton(name(), vec2(700, 300), () => start())
         var levelWhat = parseInt(prompt("What level do you want to go back to?"))
         if(levelWhat <= stageScore){
             go("game", {
-            levelIdx: levelWhat,
+            levelIdx: levelWhat - 1,
             stageScore: levelWhat,
             coinScore: 0,
         })
