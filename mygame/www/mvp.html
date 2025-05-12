@@ -18,8 +18,8 @@
     k.loadSound("victory", "sounds/victory.mp3")
     k.loadSound("ding", "sounds/ding.mp3")
 
-    const SPEED = 400;
-    k.setGravity(1300);
+    const SPEED = 300;
+    k.setGravity(1000);
 
 
     const LEVELS = [
@@ -158,7 +158,7 @@ addButton(name(), vec2(700, 300), () => start())
                     sprite("block"),
                     area(),
                     scale(0.15),
-                    pos(0, 200),
+                    //pos(0, 200),
                     body({ isStatic: true }),
                     anchor("bot"),
                 ],
