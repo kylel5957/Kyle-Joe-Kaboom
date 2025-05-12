@@ -18,8 +18,8 @@
     k.loadSound("victory", "sounds/victory.mp3")
     k.loadSound("ding", "sounds/ding.mp3")
 
-    const SPEED = 300;
-    k.setGravity(1000);
+    const SPEED = 400;
+    k.setGravity(1300);
 
 
     const LEVELS = [
@@ -161,7 +161,7 @@ addButton(name(), vec2(700, 300), () => start())
                     sprite("block"),
                     area(),
                     scale(0.15),
-                    //pos(0, 200),
+                    pos(0, 200),
                     body({ isStatic: true }),
                     anchor("bot"),
                 ],
@@ -385,22 +385,26 @@ addButton(name(), vec2(700, 300), () => start())
 
     scene("lose", ({ stageScore, coinScore, levelIdx}) => {
 
-        var levelWhat = parseInt(prompt("What level do you want to go back to?"))
-        if(levelWhat <= stageScore){
-            go("game", {
-            levelIdx: levelWhat - 1,
-            stageScore: levelWhat,
-            coinScore: 0,
-        })
-        } else {
-          add([
-                text(`Invalid number! You beat ${stageScore} level(s) and collected ${coinScore} coin(s)! Try again!`),
-                pos(12),
-            ])
-            onKeyPress(start)
-        }
+//        var levelWhat = parseInt(prompt("What level do you want to go back to?"))
+//        if(levelWhat <= stageScore){
+//            go("game", {
+//            levelIdx: levelWhat - 1,
+//            stageScore: levelWhat,
+//            coinScore: 0,
+//        })
+//        } else {
+//          add([
+//                text(`Invalid number! You beat ${stageScore} level(s) and collected ${coinScore} coin(s)! Try again!`),
+//                pos(12),
+//            ])
+//            onKeyPress(start)
+//        }
         // Press any key to go back
-        //    onKeyPress(start)
+            onKeyPress(start)
+             add([
+            text(`You beat ${stageScore} level(s) and collected ${coinScore} coin(s)! Try again!`),
+            pos(12),
+            ])
 
     })
 
