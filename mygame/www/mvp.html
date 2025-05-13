@@ -56,11 +56,11 @@
             "                              ",
             "                              ",
             "    >         $           $   ",
-            "  E====    2 =====  ==  ====  ",
-            "                              ",
+            "  E====    2  ====  ==  ====  ",
             "          =                   ",
-            "    (   =     =    = $$ $$    ",
-            "  e=====        =    == ==    ",
+            "             =                ",
+            "    (         =    = $$ $$    ",
+            " e =====   =    =    == ==    ",
         ],
         [
             "@                                          ",
@@ -212,13 +212,13 @@ addButton(name(), vec2(700, 300), () => start())
                     "coin",
                 ],
                 "0": () => [
-                    text("What is the square root of 81?")
+                    text("What is the square root of 80")
                 ],
                 "q": () => [
-                    text("It is 7")
+                    text("It is  3√5")
                 ],
                 "Q": () => [
-                    text("It is 9")
+                    text("It is 4√5")
                 ],
                 "1": () => [
                     text("What's 2 + 1 + 6 * 3?")
@@ -230,14 +230,14 @@ addButton(name(), vec2(700, 300), () => start())
                     text("The answer is 21!")
                 ],
                 "2": () => [
-                    text("What's the opposite of input?")
+                    text("Whens concatenation used?")
                 ],
                 "e": () => [
-                    text("Inside, Within"),
-                    pos(0, -10)
+                    text("Adding two variables together"),
+                    pos(-50, -10)
                 ],
                 "E": () => [
-                    text("Output, outside")
+                    text("Fusing two strings")
                 ],
                 "3": () => [
                     text("What's the opposite of software?"),
@@ -385,26 +385,26 @@ addButton(name(), vec2(700, 300), () => start())
 
     scene("lose", ({ stageScore, coinScore, levelIdx}) => {
 
-//        var levelWhat = parseInt(prompt("What level do you want to go back to?"))
-//        if(levelWhat <= stageScore){
-//            go("game", {
-//            levelIdx: levelWhat - 1,
-//            stageScore: levelWhat,
-//            coinScore: 0,
-//        })
-//        } else {
-//          add([
-//                text(`Invalid number! You beat ${stageScore} level(s) and collected ${coinScore} coin(s)! Try again!`),
-//                pos(12),
-//            ])
-//            onKeyPress(start)
-//        }
+       var levelWhat = parseInt(prompt("What level do you want to go back to?"))
+       if(levelWhat <= stageScore){
+           go("game", {
+           levelIdx: levelWhat - 1,
+           stageScore: levelWhat,
+           coinScore: 0,
+       })
+       } else {
+         add([
+               text(`Invalid number! You beat ${stageScore} level(s) and collected ${coinScore} coin(s)! Try again!`),
+               pos(12),
+           ])
+           onKeyPress(start)
+       }
         // Press any key to go back
-            onKeyPress(start)
-             add([
-            text(`You beat ${stageScore} level(s) and collected ${coinScore} coin(s)! Try again!`),
-            pos(12),
-            ])
+            // onKeyPress(start)
+            //  add([
+            // text(`You beat ${stageScore} level(s) and collected ${coinScore} coin(s)! Try again!`),
+            // pos(12),
+            // ])
 
     })
 
