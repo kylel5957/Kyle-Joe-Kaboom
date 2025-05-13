@@ -1,16 +1,22 @@
-# Presentation Plan
-
-## Hook
-* 
+# Hook
+* Ask a question that connects trivia with games
+* "Do you love playing games? Do you like trivia?, introducing  Leap & Learn!"
 
 ## Product
-* 
+* Images or GIFs of gameplay
+* Provide URL to project
 
 ## Process
-* 
+* Show MVP: Levels, sprites
+* Show Beyond MVP: Checkpoint feature
+* Snippets of different codes (both MVP and Beyond MVP)/game
+* Blog entries -> show the process behind making the MVP and Beyond MVP (serve as context)
 
 ## Conclusion
-* 
+* Takeaways:
+  * "Taking time to understand documentations is key" - We had struggles on creating multiple levels, but we searched the p5js documentation and comprehended its instructions and visual examples, which led to our solutions.
+  * "Problem decomposition" - We encountered many challenges while creating our Freedom Project such as making a checkpoint system. We took time to draw out the process of our code and then use logical reasoning to lead us to our desired outcome.
+* End of with "Thank You!"
 
 <!-- EXAMPLE
 
