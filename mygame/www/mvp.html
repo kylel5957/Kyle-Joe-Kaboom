@@ -18,7 +18,7 @@
     k.loadSound("victory", "sounds/victory.mp3")
     k.loadSound("ding", "sounds/ding.mp3")
 
-    const SPEED = 400;
+    const SPEED = 350;
     k.setGravity(1300);
 
 
@@ -212,7 +212,7 @@ addButton(name(), vec2(700, 300), () => start())
                     "coin",
                 ],
                 "0": () => [
-                    text("What is the square root of 80")
+                    text("What is the square root of 80?")
                 ],
                 "q": () => [
                     text("It is  3√5")
@@ -359,7 +359,7 @@ addButton(name(), vec2(700, 300), () => start())
                 go("game", {
                     levelIdx: levelIdx + 1,
                     stageScore: stageScore,
-                    coinScore:coinScore,
+                    coinScore: coinScore,
                 })
             } else {
                 // Otherwise we have reached the end of game, go to "win" scene!
